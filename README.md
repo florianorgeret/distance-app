@@ -1,10 +1,8 @@
-# Line Transect Distance Sampling: Interactive Shiny Application <img src="assets/logo.png" align="right" width="180" />
+# Line Transect Distance Sampling: Interactive Shiny Application <img src="assets/logo.png" align="right" width="200" />
 
 An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
 
 The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/), and can also be run locally in RStudio or Positron.
-
----
 
 ## 1. The Corks Practical
 
@@ -20,8 +18,6 @@ Each category or colour of cork represents a **distinct biological species** wit
    $$d = h \times \tan\left((90 - \theta) \times \frac{\pi}{180}\right)$$
 2. **One Model per Species**: Because detection curves differ across species, users filter the dataset to fit a separate detection function $g(x)$ for each cork category, estimating its **Effective Strip Width** ($\text{ESW} = \hat{\mu} = w \times \hat{P}_a$), density ($\hat{D}$), and total abundance ($\hat{N}$).
 3. **Observation Covariates & AIC Selection**: Within a given species, detection probability can also vary with field conditions. Users can incorporate covariates (`obs_name` for observer, `beaufort_id` for sea state, or `visibility`) into the scale parameter of Half-normal (`hn`) or Hazard-rate (`hr`) key functions and compare candidate models via **Akaike's Information Criterion (AIC)** on identical data subsets.
-
----
 
 ## 2. Field CSV Formatting Requirements
 
@@ -51,7 +47,6 @@ The input CSV contains both GPS track fixes (`observation_type == "GPS"`) and ob
 
 *\*At least one of `species_common_name` or `species_code` must be present in the file.*
 
----
 
 ## 3. Using the Application Online or Locally in RStudio / Positron
 
