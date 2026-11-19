@@ -1,0 +1,17 @@
+# R and Positron local files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.positron/
+
+# Deployment tokens and metadata
+rsconnect/
+
+# macOS and Windows system files
+.DS_Store
+Thumbs.db
+
+# Ignore any extra student CSVs placed in data/, except the anonymised demo file
+data/*.csv
+!data/corks.csv
