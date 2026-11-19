@@ -2,11 +2,11 @@
 
 An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
 
-The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/)[cite: 10], and can also be run locally in Positron.
+The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/), and can also be run locally in Positron.
 
 ---
 
-## 1. Pedagogical Context: The Corks & Bottle-Caps Practical
+## 1. The Corks Practical
 
 In field ecology, observers rarely detect every individual present in a survey area: detectability decreases as perpendicular distance from the transect line increases. To experience this principle hands-on before working with marine or terrestrial wildlife datasets, students conduct a line transect survey on a lawn using scattered bottle caps and corks.
 
@@ -56,7 +56,7 @@ The input CSV contains both GPS track fixes (`observation_type == "GPS"`) and ob
 ## 3. Using the Application Online or Locally in Positron
 
 ### Online Access (Posit Connect Cloud)
-Open the hosted application directly in your browser at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/)[cite: 10]. No local R installation is required to explore the built-in `data/corks.csv` dataset or upload your own field CSV file.
+Open the hosted application directly in your browser at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/). No local R installation is required to explore the built-in `data/corks.csv` dataset or upload your own field CSV file.
 
 ### Step 1: Clone or Download the Repository
 - **Using Git in Positron**: Open the Command Palette (`Ctrl + Shift + P` on Windows/Linux or `Cmd + Shift + P` on macOS), select **Git: Clone**, paste the repository URL, and choose a local folder.
@@ -91,3 +91,11 @@ Alternatively, open app.R in the Positron editor and click the Run App button in
 ├── README.md             # Project documentation and CSV format guide
 └── .gitignore            # Git exclusion rules
 ```
+
+## Credits
+
+Developed with assistance from AI tools for code refactoring, debugging, and documentation, reviewed and tested by the author.
+
+## Licence
+
+This project is licensed under the [Creative Commons Attribution 4.0 International Licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). See the [LICENSE](LICENSE) file for details.
