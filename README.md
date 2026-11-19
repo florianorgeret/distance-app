@@ -2,7 +2,7 @@
 
 An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
 
-The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/), and can also be run locally in Positron.
+The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/), and can also be run locally in RStudio or Positron.
 
 ---
 
@@ -53,7 +53,7 @@ The input CSV contains both GPS track fixes (`observation_type == "GPS"`) and ob
 
 ---
 
-## 3. Using the Application Online or Locally in Positron
+## 3. Using the Application Online or Locally in RStudio / Positron
 
 ### Online Access (Posit Connect Cloud)
 Open the hosted application directly in your browser at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/). No local R installation is required to explore the built-in `data/corks.csv` dataset or upload your own field CSV file.
