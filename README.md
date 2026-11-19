@@ -1,12 +1,12 @@
 # Line Transect Distance Sampling:<br>Interactive Shiny Application <img src="assets/logo.png" align="right" width="250" />
 
-An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
+An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
 
 The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/), and can also be run locally in RStudio or Positron.
 
 ## 1. The Corks Practical
 
-In field ecology, observers rarely detect every individual present in a survey area: detectability decreases as perpendicular distance from the transect line increases. To experience this principle hands-on before working with marine or terrestrial wildlife datasets, students conduct a line transect survey on a lawn using scattered bottle caps and corks.
+In field ecology, observers rarely detect every individual present in a survey area: detectability decreases as perpendicular distance from the transect line increases. To experience this principle hands-on before working with marine or terrestrial wildlife datasets, students conduct a line transect survey on a lawn using scattered corks.
 
 ### Biological Analogy
 Each category or colour of cork represents a **distinct biological species** with its own intrinsic detectability profile:
