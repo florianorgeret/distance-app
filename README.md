@@ -1,4 +1,4 @@
-# Line Transect Distance Sampling: Interactive Shiny Application <img src="assets/logo.png" align="right" width="200" />
+# Line Transect Distance Sampling:<br>Interactive Shiny Application <img src="assets/logo.png" align="right" width="200" />
 
 An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
 
