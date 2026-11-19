@@ -1,8 +1,15 @@
-# Line Transect Distance Sampling: Interactive Shiny Application
-
-An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
-
-The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/), and can also be run locally in RStudio or Positron.
+<table>
+  <tr>
+    <td valign="top">
+      <h1>Line Transect Distance Sampling: Interactive Shiny Application</h1>
+      <p>An interactive R Shiny application designed for teaching and practising <strong>Line Transect Distance Sampling</strong> (<code>Distance::ds()</code>). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.</p>
+      <p>The application is available online on Posit Connect Cloud at <a href="https://florianorgeret-distance-app.share.connect.posit.cloud/">https://florianorgeret-distance-app.share.connect.posit.cloud/</a>, and can also be run locally in RStudio or Positron.</p>
+    </td>
+    <td valign="top" align="right" width="150">
+      <img src="assets/logo.png" alt="distance-app hex logo" width="140" />
+    </td>
+  </tr>
+</table>
 
 ---
 
