@@ -2,6 +2,8 @@
 
 An interactive R Shiny application designed for teaching and practising **Line Transect Distance Sampling** (`Distance::ds()`). Built around a field practical using bottle caps and corks as a biological analogy, this tool guides users from raw field CSV ingestion and automated data cleaning through to exploratory visualisation, detection function modelling, AIC model selection, and results export.
 
+The application is available online on Posit Connect Cloud at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/)[cite: 10], and can also be run locally in Positron.
+
 ---
 
 ## 1. Pedagogical Context: The Corks & Bottle-Caps Practical
@@ -10,8 +12,8 @@ In field ecology, observers rarely detect every individual present in a survey a
 
 ### Biological Analogy
 Each category or colour of cork represents a **distinct biological species** with its own intrinsic detectability profile:
-* **Conspicuous categories** (e.g., `Bouchon rose`, `Bouchon bleu`): analogous to large, brightly coloured, or surface-active species (such as fin whales or bottlenose dolphins) that remain visible at greater distances.
-* **Cryptic categories** (e.g., `Bouchon liege`, `Bouchon jaune`): analogous to small, elusive, or camouflaged species (such as harbour porpoises) whose detection probability drops sharply just a few metres from the transect line.
+- **Conspicuous categories** (e.g., `Bouchon rose`, `Bouchon bleu`): analogous to large, brightly coloured, or surface-active species (such as fin whales or bottlenose dolphins) that remain visible at greater distances.
+- **Cryptic categories** (e.g., `Bouchon liege`, `Bouchon jaune`): analogous to small, elusive, or camouflaged species (such as harbour porpoises) whose detection probability drops sharply just a few metres from the transect line.
 
 ### Core Analytical Principles Implemented in the App
 1. **Perpendicular Distance Calculation**: Field observers record a declination angle ($\theta$, in degrees) rather than a direct tape measurement. Using the observer's eye height ($h$, in metres), the app computes perpendicular distance ($d$, in metres):
@@ -23,7 +25,7 @@ Each category or colour of cork represents a **distinct biological species** wit
 
 ## 2. Field CSV Formatting Requirements
 
-The repository includes an anonymised demonstration dataset (`data/corks.csv`) collected across 5 transects ($k = 5$, $n = 78$ detections) with two observers (`Alice Martin` and `Bob Bernard`) and two sea-state levels (`beaufort_id` 1 and 2).
+The repository includes an anonymised demonstration dataset (`data/corks.csv`) collected across 5 transects ($k = 5$) with two observers (`Alice Martin` and `Bob Bernard`) and two sea-state levels (`beaufort_id` 1 and 2).
 
 ### Important Rule Before Uploading Your Own CSV
 **Upload the raw `.csv` file exported directly from the field collection app without opening and re-saving it in Microsoft Excel.** On computers set to European locales, Excel frequently replaces commas with semicolons, converts decimal points into commas, and corrupts accented characters (`Windows-1252` vs `UTF-8`). Although the app automatically detects delimiters and encodings, keeping the raw CSV untouched avoids data corruption.
@@ -51,11 +53,14 @@ The input CSV contains both GPS track fixes (`observation_type == "GPS"`) and ob
 
 ---
 
-## 3. Running the Application Locally in Positron
+## 3. Using the Application Online or Locally in Positron
+
+### Online Access (Posit Connect Cloud)
+Open the hosted application directly in your browser at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/)[cite: 10]. No local R installation is required to explore the built-in `data/corks.csv` dataset or upload your own field CSV file.
 
 ### Step 1: Clone or Download the Repository
-* **Using Git in Positron**: Open the Command Palette (`Ctrl + Shift + P` on Windows/Linux or `Cmd + Shift + P` on macOS), select **Git: Clone**, paste the repository URL, and choose a local folder.
-* **Without Git**: Click the green **Code** button on GitHub, select **Download ZIP**, extract the archive, and open the folder in Positron via **File > Open Folder...**.
+- **Using Git in Positron**: Open the Command Palette (`Ctrl + Shift + P` on Windows/Linux or `Cmd + Shift + P` on macOS), select **Git: Clone**, paste the repository URL, and choose a local folder.
+- **Without Git**: Click the green **Code** button on GitHub, select **Download ZIP**, extract the archive, and open the folder in Positron via **File > Open Folder...**.
 
 ### Step 2: Install Required R Packages
 Open the R Console in Positron and run the following command to install all dependencies:
@@ -64,16 +69,15 @@ Open the R Console in Positron and run the following command to install all depe
 install.packages(c("shiny", "tidyverse", "Distance", "sf"))
 ```
 
-### Step 3: Launch the Application
+Step 3: Launch the Application
+
 In the Positron R Console, run:
 
 ```r
 shiny::runApp()
 ```
 
-Alternatively, open `app.R` in the Positron editor and click the **Run App** button in the top-right toolbar. The application will open with the built-in `data/corks.csv` dataset ready for exploration and modelling.
-
----
+Alternatively, open app.R in the Positron editor and click the Run App button in the top-right toolbar. The application will open with the built-in data/corks.csv dataset ready for exploration and modelling.
 
 ## 4. Repository Structure
 
