@@ -69,7 +69,7 @@ Open the R Console in Positron and run the following command to install all depe
 install.packages(c("shiny", "tidyverse", "Distance", "sf"))
 ```
 
-Step 3: Launch the Application
+### Step 3: Launch the Application
 
 In the Positron R Console, run:
 
