@@ -720,12 +720,13 @@ server <- function(input, output, session) {
   output$table_transects <- renderTable({
     df <- species_data()
     trunc_w <- valid_truncation()
+    max_w <- if (is.null(trunc_w)) Inf else trunc_w
 
     df |>
       group_by(Transect = Sample.Label, `Effort (km)` = round(Effort, 4), Source = effort_source) |>
       summarise(
-        `Detections (n)` = sum(!is.na(distance) & (is.null(trunc_w) | distance <= trunc_w)),
-        `Mean dist. (m)` = round(mean(distance[is.null(trunc_w) | distance <= trunc_w], na.rm = TRUE), 2),
+        `Detections (n)` = sum(!is.na(distance) & distance <= max_w),
+        `Mean dist. (m)` = round(mean(distance[!is.na(distance) & distance <= max_w], na.rm = TRUE), 2),
         .groups = "drop"
       ) |>
       mutate(`Mean dist. (m)` = if_else(is.nan(`Mean dist. (m)`), NA_real_, `Mean dist. (m)`))
