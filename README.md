@@ -47,8 +47,29 @@ The input CSV contains both GPS track fixes (`observation_type == "GPS"`) and ob
 
 *\*At least one of `species_common_name` or `species_code` must be present in the file.*
 
+## 3. How the Application Works
 
-## 3. Using the Application Online or Locally in RStudio / Positron
+The application follows a four-step workflow in the left sidebar paired with an automated data-quality audit and three analytical tabs in the main panel.
+
+### Sidebar Workflow
+1. **Field Data**: Load either a built-in example CSV from `data/` or a custom field CSV. The reader (`read_student_csv()`) automatically detects field separators (`,` or `;`) and text encoding (`UTF-8` or `Windows-1252`), and can exclude trial transects prefixed with `Test`.
+2. **Survey Parameters**: Define observer eye height $h$ (default `1.65 m`), total study area $A$ (default `0.01 km²`, i.e. 1 hectare), and a fallback transect length (default `0.05 km`) applied only when GPS points are missing or stationary.
+3. **Species & Truncation**: Filter detections by a single species/cork category (or pool all species for initial exploration) and optionally enable right-truncation $w$ (pre-filled with the 90th percentile of observed distances). All transects are preserved in the dataset even when a species has zero sightings on a given transect.
+4. **Export Results**: Download two CSV tables for reporting: the cleaned, distance-ready dataset (`cleaned_distance_data_*.csv`) and the fitted model estimates (`distance_sampling_estimates_*.csv`).
+
+### Automated Data Processing (`R/data_prep.R`)
+When a dataset is loaded or parameters change, `prepare_ds_data()` executes four steps:
+- **Label Standardisation**: Removes hidden control characters, repairs common UTF-8/Latin-1 accent glitches, enriches generic `Bouchon` entries using `species_code`, and merges minor spelling typos via Levenshtein edit distance (`adist()`).
+- **Angle & Distance Validation**: Discards detections with missing, zero, negative, or $> 90^\circ$ angles, converts $90^\circ$ angles to $d = 0\text{ m}$ on the transect line, and computes perpendicular distances $d$ in metres.
+- **GPS Effort Reconstruction**: Filters invalid coordinates, orders GPS fixes chronologically per transect, builds spatial `LINESTRING` geometries via `sf`, and computes geodesic transect lengths $L$ in kilometres.
+- **Quality Audit Banner**: Displays an alert summary at the top of the main panel listing excluded trial transects, rejected angles, $90^\circ$ sightings, malformed GPS fixes, fallback-effort transects, and single-transect ($k = 1$) variance warnings.
+
+### Analytical Tabs
+- **Tab 1 (`1. Exploration`)**: Summarises survey effort ($k$, $L$), retained detections ($n$), and encounter rate ($n/L$). Provides an interactive distance histogram (with adjustable bin width and truncation line), covariate boxplots (`Sample.Label`, `obs_name`, `beaufort_id`, `visibility`), a transect-by-transect effort/detection table, and a cleaned label audit table.
+- **Tab 2 (`2. Detection Modelling ds()`)**: Fits detection functions via `Distance::ds()` using Half-normal (`hn`) or Hazard-rate (`hr`) key functions (`adjustment = NULL`), optional scale covariates (`~ 1`, `~ obs_name`, `~ beaufort_id`, `~ visibility`), and unit conversion (`meter`, `kilometer`, `square kilometer`). Outputs the fitted detection curve $g(x)$, summary estimates ($\text{AIC}$, $w$, $\hat{P}_a$, $\text{ESW}$), total abundance ($\hat{N}$) and density ($\hat{D}$ in $\text{ind./km}^2$ and $\text{ind./ha}$) with SE, CV, and 95% confidence intervals, a multi-model **AIC comparison table** fitted to the exact same non-missing sample, and the full R `summary(model)` output alongside its equivalent R command.
+- **Tab 3 (`3. Prepared Data`)**: Displays `glimpse()` and a table preview of the `Distance::ds()`-formatted data frame (`Region.Label`, `Area`, `Sample.Label`, `Effort`, `object`, `degree`, `distance`, `size`, `species`, `obs_name`, `beaufort_id`, `visibility`, `effort_source`).
+
+## 4. Using the Application Online or Locally in RStudio / Positron
 
 ### Online Access (Posit Connect Cloud)
 Open the hosted application directly in your browser at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/). No local R installation is required to explore the built-in `data/corks.csv` dataset or upload your own field CSV file.
@@ -74,7 +95,7 @@ shiny::runApp()
 
 Alternatively, open app.R in the Positron editor and click the Run App button in the top-right toolbar. The application will open with the built-in data/corks.csv dataset ready for exploration and modelling.
 
-## 4. Repository Structure
+## 5. Repository Structure
 
 ```text
 .
