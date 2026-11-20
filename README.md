@@ -74,18 +74,19 @@ When a dataset is loaded or parameters change, `prepare_ds_data()` executes four
 ### Online Access (Posit Connect Cloud)
 Open the hosted application directly in your browser at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/). No local R installation is required to explore the built-in `data/corks.csv` dataset or upload your own field CSV file.
 
-### Step 1: Clone or Download the Repository
+### Locally (RStudio / Positron)
+#### Step 1: Clone or Download the Repository
 - **Using Git in Positron**: Open the Command Palette (`Ctrl + Shift + P` on Windows/Linux or `Cmd + Shift + P` on macOS), select **Git: Clone**, paste the repository URL, and choose a local folder.
 - **Without Git**: Click the green **Code** button on GitHub, select **Download ZIP**, extract the archive, and open the folder in Positron via **File > Open Folder...**.
 
-### Step 2: Install Required R Packages
+#### Step 2: Install Required R Packages
 Open the R Console in Positron and run the following command to install all dependencies:
 
 ```r
 install.packages(c("shiny", "tidyverse", "Distance", "sf"))
 ```
 
-### Step 3: Launch the Application
+#### Step 3: Launch the Application
 
 In the Positron R Console, run:
 
