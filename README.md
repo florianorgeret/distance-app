@@ -74,13 +74,17 @@ When a dataset is loaded or parameters change, `prepare_ds_data()` executes four
 ### Online Access (Posit Connect Cloud)
 Open the hosted application directly in your browser at [https://florianorgeret-distance-app.share.connect.posit.cloud/](https://florianorgeret-distance-app.share.connect.posit.cloud/). No local R installation is required to explore the built-in `data/corks.csv` dataset or upload your own field CSV file.
 
-### Locally (RStudio / Positron)
-#### Step 1: Clone or Download the Repository
-- **Using Git in Positron**: Open the Command Palette (`Ctrl + Shift + P` on Windows/Linux or `Cmd + Shift + P` on macOS), select **Git: Clone**, paste the repository URL, and choose a local folder.
-- **Without Git**: Click the green **Code** button on GitHub, select **Download ZIP**, extract the archive, and open the folder in Positron via **File > Open Folder...**.
+### Running Locally in RStudio
+
+#### Step 1: Download the Project Files
+Download as a ZIP archive (recommended, no Git knowledge required): At the top of this page, click the green Code button, select Download ZIP, and extract the folder onto your computer.
+
+Open RStudio, then go to Session > Set Working Directory > Choose Directory... and select the extracted distance-app folder (or open app.R directly via File > Open File...).
+
+Side note for Positron or Git users: In Positron, open the extracted folder via File > Open Folder.... If you use Git, you can also clone the repository directly in RStudio (File > New Project... > Version Control > Git) or Positron (Git: Clone in the Command Palette).
 
 #### Step 2: Install Required R Packages
-Open the R Console in Positron and run the following command to install all dependencies:
+In the RStudio Console (or Positron Console), run the following command once to install all required packages:
 
 ```r
 install.packages(c("shiny", "tidyverse", "Distance", "sf"))
@@ -88,13 +92,14 @@ install.packages(c("shiny", "tidyverse", "Distance", "sf"))
 
 #### Step 3: Launch the Application
 
-In the Positron R Console, run:
+Open app.R in RStudio and click the Run App button at the top right of the script editor, or run the following command in the Console:
 
 ```r
 shiny::runApp()
 ```
+(In Positron, open app.R and click the Run App play icon in the top-right toolbar, or run shiny::runApp() in the Console.)
 
-Alternatively, open app.R in the Positron editor and click the Run App button in the top-right toolbar. The application will open with the built-in data/corks.csv dataset ready for exploration and modelling.
+The application will open with the built-in data/corks.csv dataset ready for exploration and modelling.
 
 ## 5. Repository Structure
 
